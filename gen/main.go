@@ -22,7 +22,7 @@ type File struct {
 }
 
 func main() {
-	fmt.Println("Generating /contents/index.html ...")
+	fmt.Println("Start generating...")
 
 	wd, err := os.Executable()
 	if err != nil {
@@ -50,7 +50,6 @@ func main() {
 	}
 
 	if err := t.Execute(fw, data); err != nil {
-		log.Fatal(err)
 		log.Fatalln(errors.Wrap(err, "failed to t.Execute(): "))
 	}
 
@@ -59,6 +58,8 @@ func main() {
 	if err := Mkfile(filepath.Join(contentsDirPath, "/index.html"), buff.Bytes()); err != nil {
 		log.Fatalln(err)
 	}
+
+	fmt.Println("Generated successfully!!")
 }
 
 // -------------------------------------------------------------------
