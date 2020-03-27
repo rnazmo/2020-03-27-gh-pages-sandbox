@@ -17,6 +17,7 @@ type FileList []File
 
 type File struct {
 	Name string
+	Mod  string
 	// Path string
 	// tag  []string
 }
@@ -151,6 +152,8 @@ func ListFilesInDir(dirPath string) (FileList, error) {
 			fl,
 			File{
 				Name: fName,
+				Mod:  info.ModTime().Format("2006-01-02"),
+				// Mod:  info.ModTime().String(),
 			},
 		)
 	}
