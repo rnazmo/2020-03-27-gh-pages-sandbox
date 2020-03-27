@@ -9,8 +9,9 @@
 <h1>Directory listing for /contents/</h1>
 <hr>
 <ul>
-<li><a href="./bar.txt">bar.txt</a></li>
-<li><a href="./foo.txt">foo.txt</a></li>
+{{- range . }}
+<li><a href="./{{ .Name }}">{{ .Name }}</a></li>
+{{- end }}
 </ul>
 <hr>
 </body>
